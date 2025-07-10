@@ -3,6 +3,7 @@ The Blog API Service is a backend micro service that can be integrate with any C
 
 ## 🔭 Development Scope
 This build:
+
 🍃	A RESTful API using Java + Spring Boot 
 
 🐘	PostgreSQL as the relational DB 
@@ -11,12 +12,12 @@ This build:
 
 🐳	Fully containerized via Docker 
 
-🙆🏽‍♂️ Following Agile practices 
+🙆🏽‍♂️    Following Agile practices 
 
-🔄 full Software Development Lifecycle
+🔄    full Software Development Lifecycle
       
  
-## 📔 Phase 1: Requirements Gathering & Information Research (Sprint 1)
+# 📔 Phase 1: Requirements Gathering & Information Research (Sprint 1)
 **Agile Methodologies** used:
 
 
@@ -52,3 +53,82 @@ This build:
 •	Scalable architecture with Docker
 
 •	API tested via Postman collections (Swagger API tester UI optional for collaboration purposes with front end developers)
+
+
+# ⚜️ Phase 2: Plan and Design (Sprint 2)
+
+🧱 System Design
+
+Java Entities:
+
+•	BlogPost (id, title, content, created_at, updated_at, author_id)
+
+•	Author (id, name, email, bio)
+
+📁 Project Structure
+
+
+src/
+
+ └── main/
+ 
+     ├── java/com/example/blogapi/
+     |
+     
+     │    ├── controller/
+     |
+     
+     │    ├── model/
+     |
+     
+     │    ├── repository/
+     |
+     
+     │    ├── service/
+     |
+     
+     │    └── BlogApiApplication.java
+     |
+     
+     └── resources/
+     
+          ├── application.properties
+
+⚙️ Database Schema (PostgreSQL)
+
+      CREATE TABLE authors (
+
+      id SERIAL PRIMARY KEY,
+
+      name VARCHAR(100),
+    
+      email VARCHAR(100) UNIQUE,
+    
+      bio TEXT
+      );
+
+
+      CREATE TABLE blog_posts (
+
+      id SERIAL PRIMARY KEY,
+    
+      title VARCHAR(255),
+    
+      content TEXT,
+    
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+      author_id INT REFERENCES authors(id)
+      
+<img width="432" height="168" alt="authors_table" src="https://github.com/user-attachments/assets/c9cf3079-9f8e-4d08-9973-c00792b77606" />
+<img width="1013" height="162" alt="blog_post table" src="https://github.com/user-attachments/assets/b26912f0-5262-479c-84f8-83ed62284cbc" />
+
+
+
+
+
+
+
+
